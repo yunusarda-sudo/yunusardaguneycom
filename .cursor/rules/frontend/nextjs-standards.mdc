@@ -1,0 +1,60 @@
+---
+description: Next.js portföy — bileşen ve App Router standartları
+globs: ["src/**/*.tsx", "src/**/*.ts"]
+alwaysApply: false
+---
+
+# Next.js Frontend Standartları
+
+## Bileşen Yapısı
+
+```tsx
+interface SectionProps {
+  className?: string;
+}
+
+export function SectionName({ className = "" }: SectionProps) {
+  return (
+    <section
+      id="section-id"
+      className={`py-16 md:py-24 ${className}`}
+      aria-labelledby="section-heading"
+    >
+      {/* içerik */}
+    </section>
+  );
+}
+```
+
+- Varsayılan: sunucu bileşeni (client state yoksa `'use client'` kullanma)
+- İsimlendirme: `PascalCase` dosya/export, bölüm bileşenleri `src/components/`
+- Config verisi `@/config/site` ve `@/data/projects` üzerinden import et; metni bileşen içine gömme
+
+## App Router
+
+- Sayfa: `src/app/page.tsx` — tek ana sayfa
+- Layout: `src/app/layout.tsx` — font, metadata, global stiller
+- Metadata: `layout.tsx` içinde `export const metadata` veya `generateMetadata`
+
+## Tailwind (v4)
+
+- Zinc arka plan, emerald vurgu (`border-emerald-500/30`, `text-emerald-400`)
+- Responsive: `md:`, `lg:` breakpoint'leri
+- `className` birleştirme: template literal veya basit string
+
+## Görseller
+
+- `next/image` + `public/` yolları
+- Profil: `public/me.jpg` — `ProfilePhoto` skeleton fallback
+- Proje: `public/projects/{id}.png` — `ProjectThumbnail` fallback
+
+## Erişilebilirlik
+
+- Bölüm `id` + nav `href` eşleşmesi
+- Anlamlı `aria-labelledby`, link metinleri açıklayıcı
+- Odak stilleri: `focus-visible:ring-2 focus-visible:ring-emerald-500`
+
+## Performans
+
+- Statik export / SSG uyumlu kal
+- Gereksiz client bundle ekleme (analytics hariç, spec'e göre Vercel Analytics)

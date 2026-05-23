@@ -1,0 +1,45 @@
+---
+description: Yeni React bileşeni şablonu — portföy bölümleri
+globs: []
+alwaysApply: false
+---
+
+# React Bileşen Şablonu
+
+Portföy bölüm bileşeni için `@react-component-template` referansı:
+
+```tsx
+import { siteConfig } from "@/config/site";
+
+interface ExampleSectionProps {
+  className?: string;
+}
+
+export function ExampleSection({ className = "" }: ExampleSectionProps) {
+  return (
+    <section
+      id="example"
+      className={`border-t border-zinc-800/80 py-16 md:py-24 ${className}`}
+      aria-labelledby="example-heading"
+    >
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <h2
+          id="example-heading"
+          className="text-2xl font-semibold tracking-tight text-zinc-50 md:text-3xl"
+        >
+          {siteConfig.name}
+        </h2>
+        <p className="mt-4 max-w-2xl text-zinc-400">{siteConfig.tagline}</p>
+      </div>
+    </section>
+  );
+}
+```
+
+## Kurallar
+
+1. Config'den veri al; uzun metinleri bileşende tutma
+2. Bölüm `id` nav linkleriyle eşleşsin
+3. Karanlık tema: zinc-900/950 arka plan, emerald vurgu
+4. Client state yalnızca gerekirse (`'use client'`)
+5. Export: named `export function` (mevcut codebase ile uyumlu)

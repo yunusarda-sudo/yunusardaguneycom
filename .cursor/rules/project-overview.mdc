@@ -1,0 +1,48 @@
+---
+description: yunusardaguney.com — portföy projesi genel bakış ve standartlar
+globs: ["**/*"]
+alwaysApply: true
+---
+
+# yunusardaguney.com — Proje Standartları
+
+Kişisel portföy sitesi. Tek sayfa, proje odaklı, statik içerik. Kaynak: [humanstack/vibe-coding-template](https://github.com/humanstack/vibe-coding-template) AI workflow uyarlaması.
+
+## Mimari
+
+- **Frontend only**: Next.js 15 App Router, React 19, TypeScript, Tailwind CSS 4
+- **İçerik**: Statik — `src/config/site.ts`, `src/data/projects.ts` (CMS yok)
+- **Deploy**: Vercel → yunusardaguney.com
+- **Spec**: `product.md` ve `CONTEXT.md` tek doğruluk kaynağı
+
+## v1 Kapsam Dışı (ekleme)
+
+Blog, CMS, i18n, kullanıcı girişi, backend API, Supabase, FastAPI.
+
+## Dosya Organizasyonu
+
+```
+src/
+├── app/           # layout.tsx, page.tsx, globals.css
+├── components/    # nav, hero, projects, about, contact, footer
+├── config/        # site.ts — meta, nav, sosyal, hakkımda
+├── data/          # projects.ts
+└── types/         # project.ts
+public/
+├── me.jpg
+└── projects/*.png
+```
+
+## Tasarım
+
+- Karanlık tema (zinc/emerald palet)
+- Mobile-first, anchor navigation (`#projects`, `#about`, `#contact`)
+- `next/image` ile görseller; yoksa skeleton yer tutucu
+
+## Kalite
+
+- TypeScript strict; `as const` config objeleri
+- Sunucu bileşeni varsayılan; etkileşim için `'use client'`
+- İçerik değişikliği → `site.ts` / `projects.ts`, layout değişikliği → `components/`
+
+Yeni özellik eklemeden önce `product.md` ile uyumu doğrula.

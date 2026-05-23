@@ -1,0 +1,52 @@
+---
+description: Geliştirme ve deploy iş akışı
+globs: ["package.json", "next.config.ts", "README.md"]
+alwaysApply: false
+---
+
+# Geliştirme İş Akışı
+
+## Kurulum
+
+```bash
+npm install
+npm run dev    # http://localhost:3000
+npm run build  # production doğrulama
+npm run lint
+```
+
+## AI bağlamı
+
+Yeni oturumda veya büyük değişiklikte şunları bağlama:
+
+- `product.md` — ürün spec
+- `CONTEXT.md` — özet mimari
+- `AGENTS.md` — agent talimatları
+
+## İçerik güncelleme
+
+1. Proje ekle/düzenle → `src/data/projects.ts`
+2. Site metni → `src/config/site.ts`
+3. Görsel → `public/me.jpg`, `public/projects/{id}.png`
+
+## Deploy
+
+- Vercel, branch `main`
+- Build: `next build`
+- Ortam değişkeni gerekmez (v1 statik site)
+
+## Commit formatı
+
+```
+feat(projects): add new portfolio card
+fix(nav): mobile menu anchor scroll
+docs: update product spec
+```
+
+## Kontrol listesi (PR öncesi)
+
+- [ ] `npm run build` başarılı
+- [ ] `npm run lint` temiz
+- [ ] Mobil görünüm kontrol
+- [ ] Anchor linkler çalışıyor
+- [ ] `product.md` ile uyum

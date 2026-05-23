@@ -65,7 +65,7 @@ export function Nav() {
           </span>
           <span className="font-mono text-[11px] uppercase tracking-[0.22em] text-muted transition-colors group-hover:text-foreground">
             Y·A·G
-            <span className="ml-2 text-dim">// folio</span>
+            <span className="ml-2 text-dim">/ folio</span>
           </span>
         </a>
 

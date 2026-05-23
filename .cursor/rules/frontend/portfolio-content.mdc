@@ -1,0 +1,50 @@
+---
+description: Portföy içerik ve veri katmanı kuralları
+globs: ["src/config/**", "src/data/**", "src/types/**"]
+alwaysApply: false
+---
+
+# İçerik ve Veri Katmanı
+
+## Kaynak dosyalar
+
+| Dosya | İçerik |
+|-------|--------|
+| `src/config/site.ts` | İsim, rol, tagline, nav, sosyal linkler, tech stack, hakkımda paragrafları |
+| `src/data/projects.ts` | Proje listesi |
+| `src/types/project.ts` | `Project` interface |
+
+## Project modeli
+
+```ts
+interface Project {
+  id: string;
+  title: string;
+  description: string;
+  tags: string[];
+  liveUrl?: string;
+  repoUrl?: string;
+  image?: string;
+  featured?: boolean;
+  year?: number;
+}
+```
+
+## Sıralama
+
+`featured` önce, sonra `year` azalan.
+
+## v1 proje listesi (referans)
+
+1. MODÜ-GRID — featured, 2026
+2. RandevuAsistanim.online — featured, 2026
+3. Solveny Agency Showcase — 2025
+
+## Kurallar
+
+- Metin ve link güncellemeleri bileşen değil config/data dosyasında
+- `repoUrl` gizli projelerde boş bırakılabilir
+- Görsel yolu: `image: "/projects/{id}.png"` veya `ProjectThumbnail` id ile türetir
+- Türkçe kullanıcı metinleri; kod/yorum İngilizce veya Türkçe (mevcut dosyayla tutarlı kal)
+
+Detaylı copy ve SEO: `product.md` bölüm 5–8.
