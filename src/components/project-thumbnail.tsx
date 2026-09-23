@@ -25,18 +25,28 @@ export function ProjectThumbnail({
 
   return (
     <div
-      className={`relative w-full overflow-hidden rounded-lg bg-zinc-950 ${featured ? "aspect-[16/10]" : "aspect-video"}`}
+      className={`relative w-full overflow-hidden rounded-lg border border-border bg-paper ${featured ? "aspect-[16/10]" : "aspect-video"}`}
     >
       <div
         className={`absolute inset-0 bg-gradient-to-br ${gradientFrom} ${gradientTo} transition-opacity duration-500 ${showImage ? "opacity-40" : "opacity-100"}`}
       />
+
+      {/* Typographic cover — dev serif monogram, hover'da hafifçe yükselir */}
+      {!showImage && (
+        <span
+          aria-hidden
+          className="display-text display-italic pointer-events-none absolute -bottom-8 right-1 select-none text-[8rem] leading-none text-foreground/[0.08] transition-transform duration-700 ease-out group-hover:-translate-y-3 sm:text-[10rem]"
+        >
+          {title.charAt(0)}
+        </span>
+      )}
 
       {showImage && (
         <Image
           src={image}
           alt={`${title} önizleme`}
           fill
-          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
+          className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
           sizes={
             featured
               ? "(max-width: 1024px) 50vw, 33vw"
@@ -46,21 +56,22 @@ export function ProjectThumbnail({
         />
       )}
 
-      <div className="absolute inset-0 opacity-[0.35]">
+      {/* Hairline grid texture */}
+      <div className="absolute inset-0 opacity-[0.4]">
         <svg className="h-full w-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <pattern
               id={`grid-${projectId}`}
-              width="20"
-              height="20"
+              width="22"
+              height="22"
               patternUnits="userSpaceOnUse"
             >
               <path
-                d="M 20 0 L 0 0 0 20"
+                d="M 22 0 L 0 0 0 22"
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="0.5"
-                className="text-accent/30"
+                className="text-foreground/15"
               />
             </pattern>
           </defs>
@@ -68,18 +79,6 @@ export function ProjectThumbnail({
         </svg>
       </div>
 
-      <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent p-4 pt-12">
-        <div className="flex items-end justify-between gap-2">
-          <div className="flex gap-1.5">
-            <div className="h-1.5 w-6 rounded-full bg-accent/70" />
-            <div className="h-1.5 w-10 rounded-full bg-zinc-600" />
-            <div className="h-1.5 w-4 rounded-full bg-zinc-700/80" />
-          </div>
-          <span className="font-mono text-[10px] uppercase tracking-wider text-muted/80">
-            preview
-          </span>
-        </div>
-      </div>
     </div>
   );
 }

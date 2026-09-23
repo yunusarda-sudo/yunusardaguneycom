@@ -1,6 +1,7 @@
-import { aboutParagraphs, siteConfig, techStack } from "@/config/site";
+import { aboutParagraphs, siteConfig, stats, techStack } from "@/config/site";
 import { ProfilePhoto } from "@/components/profile-photo";
 import { SectionHeader } from "@/components/section-header";
+import { Counter } from "@/components/counter";
 
 const FACTS = [
   { label: "Rol", value: "Software & AI Automation" },
@@ -16,13 +17,35 @@ export function About() {
       className="scroll-mt-24 border-t border-border/60 px-5 py-28 sm:px-8 sm:py-36"
     >
       <div className="mx-auto max-w-7xl">
-        <SectionHeader
-          index="02"
-          label="Field notes"
-          kicker="şahsi · operasyonel"
-          title="Builder mindset"
-          description="Fikirden üretime uçtan uca — mimari, otomasyon ve ürün."
-        />
+        <div data-reveal>
+          <SectionHeader
+            index="02"
+            label="Field notes"
+            kicker="şahsi · operasyonel"
+            title="Builder mindset"
+            description="Fikirden üretime uçtan uca: mimari, otomasyon ve ürün."
+          />
+        </div>
+
+        {/* STAT COUNTERS */}
+        <dl
+          data-reveal
+          className="mb-16 grid grid-cols-3 gap-px overflow-hidden rounded-2xl border border-border bg-border lg:mb-20"
+        >
+          {stats.map((stat) => (
+            <div
+              key={stat.label}
+              className="flex flex-col gap-1 bg-surface px-4 py-7 text-center sm:py-9"
+            >
+              <dd className="display-text text-4xl text-foreground sm:text-5xl lg:text-6xl">
+                <Counter value={stat.value} suffix={stat.suffix} />
+              </dd>
+              <dt className="font-mono text-[10px] uppercase tracking-[0.18em] text-dim sm:text-[11px]">
+                {stat.label}
+              </dt>
+            </div>
+          ))}
+        </dl>
 
         <div className="grid gap-12 lg:grid-cols-[minmax(0,320px)_1fr] lg:gap-20 lg:items-start">
           {/* SIDEBAR */}
@@ -84,7 +107,7 @@ export function About() {
 
             <div className="mt-12 flex items-center gap-4 border-t border-border/60 pt-6">
               <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-dim">
-                — Yunus Arda Güney
+                Yunus Arda Güney
               </span>
               <span className="h-px flex-1 bg-border" />
               <span className="font-serif text-base italic text-accent">

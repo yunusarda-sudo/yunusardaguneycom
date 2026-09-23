@@ -1,30 +1,82 @@
-import { projects } from "@/data/projects";
+"use client";
+
+import { useMemo, useState } from "react";
+import { projects, projectCategories } from "@/data/projects";
+import type { ProjectCategory } from "@/types/project";
 import { ProjectThumbnail } from "@/components/project-thumbnail";
 import { SectionHeader } from "@/components/section-header";
 import { IconArrowDown } from "@/components/icons";
 
+type Filter = ProjectCategory | "all";
+
+/** İmleç konumunu CSS değişkeni olarak karta yazar (state yok, re-render yok). */
+function trackSpotlight(e: React.PointerEvent<HTMLElement>) {
+  const el = e.currentTarget;
+  const rect = el.getBoundingClientRect();
+  el.style.setProperty("--spot-x", `${e.clientX - rect.left}px`);
+  el.style.setProperty("--spot-y", `${e.clientY - rect.top}px`);
+}
+
 export function Projects() {
-  const sorted = [...projects].sort((a, b) => {
-    if (a.isFeatured !== b.isFeatured) return a.isFeatured ? -1 : 1;
-    return Number(b.year) - Number(a.year);
-  });
+  const [filter, setFilter] = useState<Filter>("all");
+
+  const sorted = useMemo(
+    () =>
+      [...projects].sort((a, b) => {
+        if (a.isFeatured !== b.isFeatured) return a.isFeatured ? -1 : 1;
+        return Number(b.year) - Number(a.year);
+      }),
+    [],
+  );
+
+  const visible = useMemo(
+    () => (filter === "all" ? sorted : sorted.filter((p) => p.category === filter)),
+    [sorted, filter],
+  );
 
   return (
-    <section
-      id="projects"
-      className="scroll-mt-24 px-5 py-28 sm:px-8 sm:py-36"
-    >
+    <section id="projects" className="scroll-mt-24 px-5 py-28 sm:px-8 sm:py-36">
       <div className="mx-auto max-w-7xl">
-        <SectionHeader
-          index="01"
-          label="Selected work"
-          kicker="2025 — 2026 · canlı ve geliştirilmekte olan"
-          title="Üretim kalitesinde sistemler"
-          description="Fikirden canlı ürüne — SaaS, IoT ve yapay zekâ otomasyonları. Üçü de mimarisini ben kurdum, kodunu ben yazdım, deployment'ını ben yönetiyorum."
-        />
+        <div data-reveal>
+          <SectionHeader
+            index="01"
+            label="Selected work"
+            kicker="2025-2026 · canlı ve geliştirilmekte olan"
+            title="Üretim kalitesinde sistemler"
+            description="Fikirden canlı ürüne: SaaS, IoT ve yapay zekâ otomasyonları. Üçü de mimarisini ben kurdum, kodunu ben yazdım, deployment'ını ben yönetiyorum."
+          />
+        </div>
 
-        <ul className="grid gap-5 lg:grid-cols-12">
-          {sorted.map((project, i) => {
+        {/* FILTER TABS */}
+        <div
+          data-reveal
+          className="mb-10 flex flex-wrap items-center gap-2"
+          role="tablist"
+          aria-label="Proje filtresi"
+        >
+          {projectCategories.map((cat) => {
+            const isActive = filter === cat.id;
+            return (
+              <button
+                key={cat.id}
+                type="button"
+                role="tab"
+                aria-selected={isActive}
+                onClick={() => setFilter(cat.id)}
+                className={`rounded-full border px-4 py-1.5 font-mono text-[11px] uppercase tracking-[0.16em] transition-all ${
+                  isActive
+                    ? "border-accent bg-accent text-background"
+                    : "border-border-bright bg-surface text-muted hover:border-accent/50 hover:text-foreground"
+                }`}
+              >
+                {cat.label}
+              </button>
+            );
+          })}
+        </div>
+
+        <ul key={filter} className="animate-fade-in-up grid gap-5 lg:grid-cols-12">
+          {visible.map((project, i) => {
             const isHero = i === 0;
             const isWide = i === 1;
             const span = isHero
@@ -34,17 +86,13 @@ export function Projects() {
                 : "lg:col-span-5";
 
             return (
-              <li key={project.id} className={span}>
+              <li key={project.id} data-reveal={String(Math.min(i, 4))} className={span}>
                 <article
-                  className={`card-glow group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface/60 backdrop-blur-sm transition-all duration-500 hover:border-accent/30 hover:bg-surface ${
+                  onPointerMove={trackSpotlight}
+                  className={`luxe-card spotlight-card group relative flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-surface ${
                     isHero ? "lg:grid lg:grid-cols-[1.15fr_1fr] lg:items-stretch" : ""
                   }`}
                 >
-                  {/* Index marker */}
-                  <span className="absolute top-5 right-5 z-10 font-mono text-[10px] uppercase tracking-[0.22em] text-dim">
-                    [{String(i + 1).padStart(2, "0")}/{sorted.length}]
-                  </span>
-
                   <div className={`p-4 sm:p-5 ${isHero ? "lg:p-6" : ""}`}>
                     <ProjectThumbnail
                       projectId={project.id}
@@ -83,7 +131,7 @@ export function Projects() {
 
                       {project.tagline && (
                         <p
-                          className={`mt-3 font-serif italic text-accent/90 ${
+                          className={`mt-3 font-serif italic text-accent ${
                             isHero ? "text-lg sm:text-xl" : "text-base"
                           }`}
                         >
@@ -102,7 +150,7 @@ export function Projects() {
                       {project.description}
                     </p>
 
-                    <div className="mt-auto border-t border-border/60 pt-5">
+                    <div className="mt-auto border-t border-border pt-5">
                       <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-dim">
                         Stack
                       </p>
@@ -110,7 +158,7 @@ export function Projects() {
                         {project.tags.map((tag) => (
                           <span
                             key={tag}
-                            className="rounded-md border border-border/80 bg-background/50 px-2.5 py-1 font-mono text-[11px] text-foreground/80 transition-colors group-hover:border-border-bright"
+                            className="rounded-md border border-border bg-paper px-2.5 py-1 font-mono text-[11px] text-muted transition-colors group-hover:border-border-bright"
                           >
                             {tag}
                           </span>
@@ -149,13 +197,10 @@ export function Projects() {
           })}
         </ul>
 
-        <div className="mt-12 flex items-center justify-between gap-4 border-t border-border/60 pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-dim">
+        <div className="mt-12 flex items-center justify-between gap-4 border-t border-border pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-dim">
           <span>End of selection</span>
           <IconArrowDown className="h-3 w-3 rotate-[-90deg]" />
-          <a
-            href="#about"
-            className="link-underline text-muted hover:text-foreground"
-          >
+          <a href="#about" className="link-underline text-muted hover:text-foreground">
             devamı / hakkımda
           </a>
         </div>

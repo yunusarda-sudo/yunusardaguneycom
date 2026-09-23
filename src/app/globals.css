@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-background: #08080a;
-  --color-foreground: #fafafa;
-  --color-muted: #a1a1aa;
-  --color-dim: #71717a;
-  --color-accent: #34d399;
-  --color-accent-dim: #10b981;
-  --color-accent-hover: #059669;
-  --color-accent-muted: #064e3b;
-  --color-surface: #111114;
-  --color-surface-elevated: #1c1c20;
-  --color-border: #22222a;
-  --color-border-bright: #3a3a44;
-  --color-paper: #f4ede2;
+  /* Warm light-luxury palette */
+  --color-background: #faf7f2;        /* sıcak kağıt */
+  --color-foreground: #1a1916;        /* sıcak mürekkep */
+  --color-muted: #6b675f;             /* ikincil metin */
+  --color-dim: #9a948a;               /* etiket / hairline metin */
+  --color-accent: #b4612f;            /* yanık kiremit / clay */
+  --color-accent-dim: #9a4f24;
+  --color-accent-hover: #7f3f1c;
+  --color-accent-muted: #ecdcce;      /* açık clay tint */
+  --color-surface: #ffffff;
+  --color-surface-elevated: #fffdfa;
+  --color-border: #e8e1d5;
+  --color-border-bright: #d6cdbd;
+  --color-paper: #f1e9dc;
 
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
@@ -42,15 +43,16 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border);
+  background: var(--color-border-bright);
+  border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-dim);
+  background: var(--color-accent);
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--color-accent) 35%, transparent);
+  background: color-mix(in srgb, var(--color-accent) 22%, transparent);
   color: var(--color-foreground);
 }
 
@@ -76,48 +78,36 @@ body {
 }
 
 /* ============================================================
-   Ambient layers
+   Ambient layer — single restrained warm wash
    ============================================================ */
 
-.page-grid {
-  background-image:
-    linear-gradient(
-      to right,
-      color-mix(in srgb, var(--color-border-bright) 30%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      to bottom,
-      color-mix(in srgb, var(--color-border-bright) 30%, transparent) 1px,
-      transparent 1px
-    );
-  background-size: 88px 88px;
-  background-position: 0 0;
-  mask-image: radial-gradient(
-    ellipse 80% 60% at 50% 0%,
-    black 30%,
-    transparent 75%
+.page-glow {
+  background: radial-gradient(
+    ellipse 90% 55% at 50% -8%,
+    color-mix(in srgb, var(--color-accent) 7%, transparent),
+    transparent 60%
   );
 }
 
-.page-glow {
-  background:
-    radial-gradient(
-      ellipse 70% 50% at 20% -10%,
-      color-mix(in srgb, var(--color-accent) 12%, transparent),
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse 60% 40% at 80% 10%,
-      color-mix(in srgb, #6366f1 8%, transparent),
-      transparent 55%
-    );
+/* ============================================================
+   Surfaces — soft, disciplined depth (no neon, no grain)
+   ============================================================ */
+
+.luxe-card {
+  box-shadow:
+    0 1px 2px rgba(26, 25, 22, 0.04),
+    0 10px 28px -16px rgba(26, 25, 22, 0.14);
+  transition:
+    box-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    border-color 0.45s ease;
 }
 
-.page-grain {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 0.5 0'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.4'/></svg>");
-  opacity: 0.05;
-  mix-blend-mode: overlay;
+.luxe-card:hover {
+  box-shadow:
+    0 2px 4px rgba(26, 25, 22, 0.05),
+    0 22px 48px -20px rgba(180, 97, 47, 0.22);
+  transform: translateY(-3px);
 }
 
 /* ============================================================
@@ -153,9 +143,9 @@ body {
 .skeleton-shimmer {
   background: linear-gradient(
     90deg,
-    var(--color-surface) 0%,
+    var(--color-paper) 0%,
     var(--color-surface-elevated) 50%,
-    var(--color-surface) 100%
+    var(--color-paper) 100%
   );
   background-size: 200% 100%;
   animation: shimmer 2s infinite linear;
@@ -167,7 +157,7 @@ body {
 }
 
 .marquee-track {
-  animation: marquee 40s linear infinite;
+  animation: marquee 48s linear infinite;
   will-change: transform;
 }
 
@@ -200,9 +190,9 @@ body {
   font-family: var(--font-serif), serif;
   float: left;
   font-size: 4.5rem;
-  line-height: 0.85;
+  line-height: 0.78;
   padding-right: 0.6rem;
-  padding-top: 0.35rem;
+  padding-top: 0.4rem;
   color: var(--color-accent);
   font-style: italic;
 }
@@ -210,48 +200,238 @@ body {
 .rule-thick {
   background: linear-gradient(
     90deg,
-    var(--color-foreground) 0%,
-    var(--color-foreground) 6%,
+    var(--color-accent) 0%,
+    var(--color-accent) 6%,
     var(--color-border-bright) 6%,
     var(--color-border-bright) 100%
   );
   height: 2px;
 }
 
-.card-glow {
+/* Form inputs */
+.input-base {
+  width: 100%;
+  border-radius: 0.6rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-paper);
+  padding: 0.7rem 0.85rem;
+  font-size: 0.9rem;
+  color: var(--color-foreground);
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.input-base::placeholder {
+  color: var(--color-dim);
+}
+
+.input-base:focus {
+  outline: none;
+  background: var(--color-surface);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent) 14%, transparent);
+}
+
+/* Scroll reveal — controller adds .in when element enters viewport */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition:
+    opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* Typing caret */
+@keyframes caret-blink {
+  0%, 45% { opacity: 1; }
+  50%, 95% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.type-caret {
+  display: inline-block;
+  width: 0.5ch;
+  margin-left: 0.06em;
+  color: var(--color-accent);
+  animation: caret-blink 1.05s step-end infinite;
+}
+
+/* Timeline rail node */
+.timeline-node {
+  box-shadow: 0 0 0 4px var(--color-background);
+}
+
+/* Timeline rail — draws itself on scroll where supported */
+.timeline-rail {
   position: relative;
 }
 
-.card-glow::before {
+.timeline-rail::before {
   content: "";
   position: absolute;
-  inset: -1px;
-  border-radius: inherit;
-  padding: 1px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 1px;
   background: linear-gradient(
-    135deg,
-    color-mix(in srgb, var(--color-accent) 35%, transparent),
-    transparent 50%
+    to bottom,
+    color-mix(in srgb, var(--color-accent) 55%, var(--color-border-bright)),
+    var(--color-border-bright)
   );
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
+  transform-origin: top;
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .timeline-rail::before {
+      animation: draw-y linear both;
+      animation-timeline: view();
+      animation-range: entry 10% cover 60%;
+    }
+  }
+}
+
+@keyframes draw-y {
+  from { transform: scaleY(0); }
+  to { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .type-caret {
+    animation: none;
+  }
+}
+
+/* ============================================================
+   Creative layer — letter cascade, magnetic CTA, spotlight,
+   scroll progress, outlined wordmark
+   ============================================================ */
+
+/* Hero name: per-letter rise (safe for descenders — no clipping mask) */
+.letter-rise {
+  display: inline-block;
   opacity: 0;
-  transition: opacity 0.4s ease;
+  transform: translateY(0.38em) rotate(1.2deg);
+  animation: letter-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes letter-in {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Magnetic wrapper — JS sets transform directly, transition gives inertia */
+.magnetic {
+  display: inline-block;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Cursor spotlight on project cards — warm clay wash following pointer */
+.spotlight-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
   pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  background: radial-gradient(
+    380px circle at var(--spot-x, 50%) var(--spot-y, 50%),
+    color-mix(in srgb, var(--color-accent) 9%, transparent),
+    transparent 65%
+  );
 }
 
-.card-glow:hover::before {
-  opacity: 1;
+@media (hover: hover) and (pointer: fine) {
+  .spotlight-card:hover::after {
+    opacity: 1;
+  }
 }
 
-.text-shadow-glow {
-  text-shadow: 0 0 40px color-mix(in srgb, var(--color-accent) 25%, transparent);
+/* Reading progress hairline — pure CSS scroll-driven, hidden if unsupported */
+.scroll-progress {
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: progress-x linear both;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes progress-x {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* Footer wordmark: outlined type, fills faint clay on hover, rises on scroll */
+.wordmark-outline {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--color-border-bright);
+  transition:
+    color 0.8s ease,
+    -webkit-text-stroke-color 0.8s ease;
+}
+
+.wordmark-outline:hover {
+  color: color-mix(in srgb, var(--color-accent) 12%, transparent);
+  -webkit-text-stroke-color: color-mix(
+    in srgb,
+    var(--color-accent) 55%,
+    var(--color-border-bright)
+  );
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .wordmark-outline {
+      animation: wordmark-rise linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+  }
+}
+
+@keyframes wordmark-rise {
+  from {
+    transform: translateY(28%);
+    opacity: 0.4;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .letter-rise {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .magnetic {
+    transition: none;
+  }
+  .spotlight-card::after {
+    display: none;
+  }
 }
 
 /* Underline that draws on hover */

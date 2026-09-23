@@ -8,8 +8,25 @@ export const siteConfig = {
   assets: {
     /** Set to "/me.jpg" after adding public/me.jpg */
     profilePhoto: null as string | null,
+    /** Set to "/cv.pdf" after adding public/cv.pdf — null gizler */
+    cv: null as string | null,
   },
 } as const;
+
+/** Hero'da değişen başlıklar (typing efekti) */
+export const heroRotatingTitles = [
+  "Software Engineer",
+  "AI Automation Engineer",
+  "SaaS Builder",
+  "Full-stack Developer",
+] as const;
+
+/** Hakkımda istatistikleri (sayaç animasyonlu) */
+export const stats = [
+  { value: 3, suffix: "+", label: "Canlı / aktif proje" },
+  { value: 3, suffix: "+", label: "Yıl üretim deneyimi" },
+  { value: 100, suffix: "%", label: "Uçtan uca sahiplik" },
+] as const;
 
 export const socialLinks = {
   github: "https://github.com/yunusardaguney",
@@ -20,6 +37,7 @@ export const socialLinks = {
 export const navLinks = [
   { label: "Projeler", href: "#projects" },
   { label: "Hakkımda", href: "#about" },
+  { label: "Deneyim", href: "#experience" },
   { label: "İletişim", href: "#contact" },
 ] as const;
 

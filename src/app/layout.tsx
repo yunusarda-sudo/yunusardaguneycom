@@ -24,11 +24,11 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: `${siteConfig.name} — ${siteConfig.role}`,
+  title: `${siteConfig.name} · ${siteConfig.role}`,
   description: siteConfig.tagline,
   metadataBase: new URL(siteConfig.url),
   openGraph: {
-    title: `${siteConfig.name} — ${siteConfig.role}`,
+    title: `${siteConfig.name} · ${siteConfig.role}`,
     description: siteConfig.tagline,
     url: siteConfig.url,
     siteName: siteConfig.name,

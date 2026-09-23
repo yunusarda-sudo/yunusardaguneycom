@@ -1,5 +1,6 @@
 import { siteConfig, socialLinks } from "@/config/site";
 import { SectionHeader } from "@/components/section-header";
+import { ContactForm } from "@/components/contact-form";
 import { IconGitHub, IconLinkedIn, IconMail } from "@/components/icons";
 
 const links = [
@@ -8,21 +9,18 @@ const links = [
     href: socialLinks.email,
     value: siteConfig.email,
     icon: IconMail,
-    cta: "Yaz",
   },
   {
     label: "GitHub",
     href: socialLinks.github,
     value: "github.com/yunusardaguney",
     icon: IconGitHub,
-    cta: "Takip et",
   },
   {
     label: "LinkedIn",
     href: socialLinks.linkedin,
     value: "linkedin.com/in/yunusardaguney",
     icon: IconLinkedIn,
-    cta: "Bağlan",
   },
 ];
 
@@ -30,72 +28,65 @@ export function Contact() {
   return (
     <section
       id="contact"
-      className="scroll-mt-24 border-t border-border/60 px-5 py-28 sm:px-8 sm:py-36"
+      className="scroll-mt-24 border-t border-border/70 bg-accent-muted/30 px-5 py-28 sm:px-8 sm:py-36"
     >
       <div className="mx-auto max-w-7xl">
-        <SectionHeader
-          index="03"
-          label="Get in touch"
-          kicker="açığım · yeni iş / iş birliği"
-          title="Birlikte inşa edelim"
-          description="Yeni proje, iş birliği veya teknik danışmanlık için doğrudan ulaşabilirsin. Genellikle 24 saat içinde dönüş yapıyorum."
-        />
+        <div data-reveal>
+          <SectionHeader
+            index="04"
+            label="Get in touch"
+            kicker="açığım · yeni iş / iş birliği"
+            title="Birlikte inşa edelim"
+            description="Yeni proje, iş birliği veya teknik danışmanlık için doğrudan ulaşabilirsin. Genellikle 24 saat içinde dönüş yapıyorum."
+          />
+        </div>
 
-        {/* OVERSIZED MAILTO */}
-        <a
-          href={socialLinks.email}
-          className="group block border-y border-border/60 py-12 transition-colors hover:bg-surface/40"
-        >
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="mb-3 font-mono text-[10px] uppercase tracking-[0.22em] text-dim">
-                Direkt yaz →
-              </p>
-              <p className="display-text text-[clamp(2.25rem,7vw,5.5rem)] text-foreground transition-colors group-hover:text-accent">
-                {siteConfig.email}
-              </p>
-            </div>
-            <span className="inline-flex h-14 w-14 shrink-0 items-center justify-center rounded-full border-2 border-foreground/90 text-2xl transition-all group-hover:border-accent group-hover:bg-accent group-hover:text-background">
-              →
-            </span>
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-20">
+          {/* LEFT — invite + links */}
+          <div data-reveal className="flex flex-col">
+            <p className="max-w-md font-serif text-2xl italic leading-snug text-foreground sm:text-3xl">
+              Bir fikrin mi var, yoksa sadece merhaba mı demek istiyorsun? Kutu
+              her zaman açık.
+            </p>
+
+            <ul className="mt-10 flex flex-col">
+              {links.map((link) => {
+                const Icon = link.icon;
+                const external = !link.href.startsWith("mailto");
+                return (
+                  <li key={link.label}>
+                    <a
+                      href={link.href}
+                      target={external ? "_blank" : undefined}
+                      rel={external ? "noopener noreferrer" : undefined}
+                      className="group flex items-center gap-4 border-b border-border py-4 transition-colors hover:border-accent/50"
+                    >
+                      <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-border-bright bg-surface text-foreground transition-colors group-hover:border-accent/50 group-hover:text-accent">
+                        <Icon className="h-5 w-5" />
+                      </span>
+                      <span className="flex flex-col">
+                        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-dim">
+                          {link.label}
+                        </span>
+                        <span className="text-sm text-foreground transition-colors group-hover:text-accent">
+                          {link.value}
+                        </span>
+                      </span>
+                      <span className="ml-auto text-muted transition-transform group-hover:translate-x-0.5">
+                        →
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
-        </a>
 
-        {/* SOCIAL GRID */}
-        <ul className="mt-5 grid gap-3 sm:grid-cols-3">
-          {links.map((link) => {
-            const Icon = link.icon;
-            const external = !link.href.startsWith("mailto");
-
-            return (
-              <li key={link.label}>
-                <a
-                  href={link.href}
-                  target={external ? "_blank" : undefined}
-                  rel={external ? "noopener noreferrer" : undefined}
-                  className="card-glow group flex h-full flex-col justify-between gap-8 rounded-2xl border border-border bg-surface/50 p-6 transition-all hover:border-accent/30 hover:bg-surface"
-                >
-                  <div className="flex items-start justify-between">
-                    <span className="flex h-11 w-11 items-center justify-center rounded-xl border border-border-bright bg-background text-foreground transition-colors group-hover:border-accent/40 group-hover:text-accent">
-                      <Icon className="h-5 w-5" />
-                    </span>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-dim">
-                      {link.cta} →
-                    </span>
-                  </div>
-                  <div>
-                    <p className="mb-1 font-mono text-[10px] uppercase tracking-[0.22em] text-accent">
-                      {link.label}
-                    </p>
-                    <p className="font-serif text-xl italic leading-tight text-foreground transition-colors group-hover:text-accent">
-                      {link.value}
-                    </p>
-                  </div>
-                </a>
-              </li>
-            );
-          })}
-        </ul>
+          {/* RIGHT — form */}
+          <div data-reveal>
+            <ContactForm />
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+export type ProjectCategory = "saas" | "ai" | "iot";
+
 export interface Project {
   id: string;
   title: string;
@@ -5,6 +7,7 @@ export interface Project {
   description: string;
   tags: string[];
   year: string;
+  category: ProjectCategory;
   isFeatured: boolean;
   demoUrl?: string;
   githubUrl?: string;

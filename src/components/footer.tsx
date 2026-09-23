@@ -12,11 +12,13 @@ export function Footer() {
   return (
     <footer className="relative border-t border-border/60 px-5 py-12 sm:px-8 sm:py-16">
       <div className="mx-auto max-w-7xl">
-        {/* GIANT WORDMARK */}
+        {/* GIANT WORDMARK — outline, hover'da clay dolar, scroll'da yükselir */}
         <div className="mb-10 overflow-hidden">
-          <p className="display-text text-[clamp(3rem,12vw,10rem)] leading-[0.88] text-foreground/8 select-none">
-            <span className="text-foreground/10">YUNUS </span>
-            <span className="display-italic text-foreground/15">ARDA</span>
+          <p
+            aria-hidden
+            className="wordmark-outline display-text select-none text-[clamp(3rem,12vw,10rem)] leading-[0.88]"
+          >
+            YUNUS <span className="display-italic">ARDA</span>
           </p>
         </div>
 
@@ -62,7 +64,7 @@ export function Footer() {
 
         <div className="mt-10 flex flex-wrap items-center justify-between gap-4 border-t border-border/60 pt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-dim">
           <span>© {year} · {siteConfig.name}</span>
-          <span>v1 · Issue 01</span>
+          <span>{"İstanbul'da tasarlandı & kodlandı"}</span>
           <a href="#" className="link-underline text-muted hover:text-foreground">
             yukarı çık ↑
           </a>

@@ -28,11 +28,11 @@ export function ProfilePhoto({ src, alt }: ProfilePhotoProps) {
   return (
     <div className="relative mx-auto shrink-0 lg:mx-0">
       <div
-        className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-accent/20 via-transparent to-accent-dim/10 blur-xl"
+        className="absolute -inset-3 rounded-3xl bg-gradient-to-br from-accent/15 via-transparent to-accent/5 blur-2xl"
         aria-hidden
       />
-      <div className="relative h-52 w-52 overflow-hidden rounded-2xl border border-border-bright bg-surface shadow-2xl sm:h-56 sm:w-56">
-        <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-accent/25" aria-hidden />
+      <div className="luxe-card relative h-52 w-52 overflow-hidden rounded-2xl border border-border-bright bg-surface sm:h-56 sm:w-56">
+        <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-accent/15" aria-hidden />
         {!showImage ? (
           <ProfilePlaceholder />
         ) : (
