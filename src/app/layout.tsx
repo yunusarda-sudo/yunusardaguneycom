@@ -1,25 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
+import localFont from "next/font/local";
 import { siteConfig } from "@/config/site";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const readingFont = localFont({
+  src: "./fonts/cormorant-garamond.ttf",
+  variable: "--font-reading",
+  weight: "300 700",
   display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const instrumentSerif = Instrument_Serif({
-  variable: "--font-instrument-serif",
-  subsets: ["latin"],
+const labelFont = localFont({
+  src: "./fonts/ibm-plex-mono.ttf",
+  variable: "--font-labels",
   weight: "400",
-  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -45,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="tr">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
+        className={`${readingFont.variable} ${labelFont.variable} antialiased`}
       >
         {children}
       </body>

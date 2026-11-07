@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 850" fill="none">
+  <defs>
+    <pattern id="dots" width="9" height="9" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1" fill="#c9c7be" fill-opacity=".4"/></pattern>
+    <clipPath id="disc"><circle cx="1190" cy="375" r="360"/></clipPath>
+  </defs>
+  <circle cx="1190" cy="375" r="360" fill="#202327"/>
+  <circle cx="1190" cy="375" r="360" fill="url(#dots)"/>
+  <g clip-path="url(#disc)" stroke="#bfc0ba" stroke-opacity=".32">
+    <path d="M750 280h900M750 298h900M750 316h900M750 334h900M750 352h900M750 370h900M750 388h900M750 406h900M750 424h900M750 442h900M750 460h900M750 478h900M750 496h900M750 514h900"/>
+  </g>
+  <path d="M960 90v640M985 90v640M1010 90v640" stroke="#a9aaa4" stroke-opacity=".35"/>
+  <path d="m1190 15-175 720h450Z" fill="#101113"/>
+  <circle cx="1190" cy="375" r="360" stroke="#c9c7be" stroke-opacity=".3"/>
+</svg>

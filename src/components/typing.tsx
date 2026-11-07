@@ -21,7 +21,7 @@ export function Typing({
   deleteSpeed = 38,
   holdTime = 1500,
 }: TypingProps) {
-  const [text, setText] = useState("");
+  const [text, setText] = useState(words[0] ?? "");
   const [wordIndex, setWordIndex] = useState(0);
   const [deleting, setDeleting] = useState(false);
   const [reduced, setReduced] = useState(false);
@@ -29,6 +29,9 @@ export function Typing({
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
     setReduced(mq.matches);
+    const onChange = () => setReduced(mq.matches);
+    mq.addEventListener("change", onChange);
+    return () => mq.removeEventListener("change", onChange);
   }, []);
 
   useEffect(() => {
@@ -66,10 +69,11 @@ export function Typing({
   }
 
   return (
-    <span className={className} aria-live="polite">
-      {text}
-      <span className="type-caret" aria-hidden>
-        |
+    <span className={className}>
+      <span className="sr-only">{words.join(", ")}</span>
+      <span aria-hidden="true">
+        {text}
+        <span className="type-caret">|</span>
       </span>
     </span>
   );

@@ -63,11 +63,11 @@ export function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="luxe-card flex flex-col items-center justify-center gap-4 rounded-2xl border border-border bg-surface px-8 py-16 text-center">
-        <span className="flex h-14 w-14 items-center justify-center rounded-full bg-accent text-2xl text-background">
+      <div className="flex flex-col items-center justify-center gap-4 rounded-none border border-border bg-surface px-8 py-16 text-center">
+        <span className="flex h-14 w-14 items-center justify-center rounded-none bg-accent text-2xl text-background">
           ✓
         </span>
-        <p className="font-serif text-2xl italic text-foreground">
+        <p className="text-2xl text-foreground">
           Mesajın ulaştı, teşekkürler!
         </p>
         <p className="max-w-sm text-sm text-muted">
@@ -88,7 +88,7 @@ export function ContactForm() {
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="luxe-card flex flex-col gap-5 rounded-2xl border border-border bg-surface p-6 sm:p-8"
+      className="flex flex-col gap-6"
     >
       <div className="grid gap-5 sm:grid-cols-2">
         <Field label="İsim" htmlFor="name">
@@ -133,7 +133,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="group inline-flex items-center gap-3 rounded-full bg-foreground px-7 py-3 text-sm font-medium text-background transition-all hover:bg-accent hover:shadow-[0_14px_38px_-12px_rgba(180,97,47,0.55)] disabled:opacity-60"
+          className="text-link disabled:opacity-60"
         >
           {status === "submitting" ? "Gönderiliyor…" : "Gönder"}
           <span className="transition-transform group-hover:translate-x-0.5">
@@ -162,7 +162,7 @@ function Field({
 }) {
   return (
     <label htmlFor={htmlFor} className="flex flex-col gap-2">
-      <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-dim">
+      <span className="eyebrow">
         {label}
       </span>
       {children}

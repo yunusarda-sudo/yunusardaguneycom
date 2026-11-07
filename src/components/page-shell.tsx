@@ -1,11 +1,10 @@
+import { SiteBackground } from "@/components/site-background";
+
 export function PageShell({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative min-h-screen overflow-x-hidden">
-      <div
-        className="page-glow pointer-events-none fixed inset-0 z-0"
-        aria-hidden
-      />
-      <div className="relative z-10">{children}</div>
+    <div id="top" className="page-shell min-h-screen">
+      <SiteBackground />
+      <div className="relative">{children}</div>
     </div>
   );
 }

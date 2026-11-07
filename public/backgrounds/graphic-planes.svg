@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 850" fill="none">
+  <defs>
+    <pattern id="hatch" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(24)">
+      <path d="M0 0V12" stroke="#d4d0c6" stroke-opacity=".14" stroke-width="1"/>
+    </pattern>
+    <clipPath id="face"><path d="m915 78 603 254-241 526-611-260Z"/></clipPath>
+  </defs>
+  <path d="m915 78 603 254-241 526-611-260Z" fill="#242628"/>
+  <path d="m1082 1 417 176v491l-573-242Z" fill="#303234"/>
+  <path d="m1237 102 316 132-173 400-337-143Z" fill="#414244"/>
+  <path d="m915 78 603 254-241 526-611-260Z" fill="url(#hatch)"/>
+  <path d="m1082 1-156 425 573 242M915 78 666 598l611 260M1237 102l-194 389 337 143" stroke="#d4d0c6" stroke-opacity=".32" stroke-width="1"/>
+  <g clip-path="url(#face)" stroke="#c3bba8" stroke-opacity=".22">
+    <path d="m730 570 570 243M741 545l570 243M752 520l570 243M763 495l570 243M774 470l570 243"/>
+  </g>
+</svg>

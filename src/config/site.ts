@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Yunus Arda Güney",
   role: "Software & AI Automation Engineer",
   tagline:
-    "Üretim standartlarında (production-grade) web uygulamaları, ölçeklenebilir SaaS platformları ve yapay zekâ destekli otomasyon sistemleri inşa ediyorum.",
+    "Web ürünleri ve yapay zekâ otomasyonları geliştiriyorum. Fikirleri, kullanışlı arayüzlerden arka plandaki sistemlere kadar uçtan uca ele alıyorum.",
   url: "https://yunusardaguney.com",
   email: "contact@solveny.co",
   assets: {
@@ -51,7 +51,33 @@ export const techStack = [
 ] as const;
 
 export const aboutParagraphs = [
-  'Yazılım dünyasındaki konumumu "sadece kod yazan" değil, "fikirden üretime (idea to production) uçtan uca sistemler inşa eden bir builder" olarak tanımlıyorum. Akademik arka planımdan aldığım analitik altyapıyı, modern web teknolojileri ve yapay zekâ otomasyonlarıyla birleştirerek ölçeklenebilir, prodüksiyon kalitesinde çözümler dönüştürmeye odaklanıyorum. Sadece çalışan değil; performansı yüksek, mimarisi temiz ve kullanıcı deneyimi güçlü SaaS platformları geliştirmek ana motivasyonum.',
-  "Geliştirme süreçlerinde FastAPI, Next.js, PostgreSQL ve gelişmiş JWT yetkilendirme mekanizmaları gibi modern ve güvenilir teknolojileri içeren bir stack kullanıyorum. Teorik yaklaşımları hızla çalışan prototiplere ve ardından canlı ürünlere dönüştürme konusunda n8n ve yapay zekâ tabanlı iş akışlarını projelerime entegre ediyorum. Akıllı şebeke simülasyonlarından (MODÜ-GRID), otonom WhatsApp entegrasyonuna sahip çok kiracılı (multi-tenant) SaaS sistemlerine (RandevuAsistanim) kadar geniş bir yelpazede, backend mimarisi ve full-stack süreçlerini yönetiyorum.",
-  "Teknolojinin sadece yazılım katmanında değil, fiziksel dünya ile kesiştiği IoT ve akıllı altyapı alanlarında da aktif olarak projeler üretiyorum. Girişimci bir zihin yapısıyla, Solveny çatısı altında iş akışı mühendisliği ve otomasyon süreçleri geliştirirken, bir yandan da projelerimi startup ekosistemine ve gerçek dünya problemlerine entegre etmeye devam ediyorum.",
+  "Bir fikrin çalışan bir ürüne dönüşme süreciyle ilgileniyorum. Kullanıcının gördüğü arayüzü, verinin nasıl işlendiğini ve arka plandaki iş akışlarını birlikte düşünerek geliştiriyorum.",
+  "Next.js, FastAPI ve PostgreSQL ile web uygulamaları; n8n ve yapay zekâ entegrasyonlarıyla otomasyonlar üzerinde çalışıyorum. MODÜ-GRID, RandevuAsistanim ve Solveny, bu ilginin enerji, randevu yönetimi ve iş süreçlerindeki karşılıkları.",
+  "Benim için iyi bir çözüm, anlaşılır bir deneyim ve sürdürülebilir bir teknik yapı demek. Yeni projelerde önce ihtiyacı netleştiriyor, ardından küçük ve somut adımlarla ilerliyorum.",
 ] as const;
+
+export const projectCopy = {
+  label: "Seçili çalışmalar",
+  kicker: "2025–2026 · SaaS, enerji ve otomasyon",
+  title: "Fikirden sisteme.",
+  description: "Farklı alanlarda üzerinde çalıştığım üç proje. Her birinde çözmeye odaklandığım problem ve üstlendiğim sorumluluklar.",
+  problem: "Odaklandığım problem",
+  contribution: "Katkım",
+  technologies: "Teknolojiler",
+  illustrative: "Temsili proje şeması · ürün ekranı değildir",
+  statusNote: "Üç çalışma · üç farklı problem",
+} as const;
+
+export const portfolioDesign = {
+  hero: {
+    overline: "Yazılım · Yapay zekâ · İstanbul",
+    location: "İstanbul, Türkiye ↗",
+    intro: "Web ürünleri geliştiriyor, yapay zekâ ile iş akışları kuruyorum. Arayüzden altyapıya, fikrin bütününe odaklanıyorum.",
+    cta: "Çalışmaları keşfet",
+    artLabel: "Sistemlere meraklı.",
+  },
+  work: { heading: "SaaS, enerji ve otomasyon.", intro: "Üzerinde çalıştığım üç proje ve her birinde üstlendiğim rol.", title: "Seçili çalışmalar", period: "2025—2026", details: "Bu projedeki rolüm", visit: "Projeyi aç", artCaption: "Proje için tasarlanan tipografik kapak" },
+  about: { title: "Kodun arkasında.", label: "Hakkımda", intro: "Bir arayüzün nasıl göründüğü kadar, arkasındaki sistemin nasıl çalıştığı da ilgimi çekiyor.", description: "Next.js ve FastAPI ile ürün geliştiriyor; n8n, yapay zekâ ve IoT ile farklı sistemleri birbirine bağlıyorum. Şu sıralar odağım randevu yönetimi, akıllı şebekeler ve iş otomasyonları.", approach: "Küçük başla. Çalışır hale getir. İyileştir." },
+  contact: { label: "Yeni bir başlangıç", title: "Bir fikrin var mı?", cta: "Konuşalım ↗", form: "Mesaj bırakmayı tercih ederim", emailLabel: "E-posta", socialLabel: "Diğer yerlerde" },
+  footer: "Tasarım, kod ve aradaki her şey.",
+} as const;
