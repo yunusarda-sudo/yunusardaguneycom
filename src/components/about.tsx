@@ -9,6 +9,7 @@ export function About() {
       <div className="reading-copy">
         <p>{copy.intro}</p>
         <p>{copy.description}</p>
+        <p>{copy.outside}</p>
       </div>
     </section>
   );

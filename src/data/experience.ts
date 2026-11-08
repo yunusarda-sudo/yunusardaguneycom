@@ -10,31 +10,51 @@ export interface TimelineItem {
  */
 export const experience: TimelineItem[] = [
   {
+    org: "Marx Finance",
+    role: "Growth Engineer Intern",
+    period: "Oct 2026 — Present",
+    points: [
+      "Working on growth experiments, developer outreach, and user acquisition for an AI-powered financial research platform.",
+    ],
+  },
+  {
+    org: "ORS (Ortadoğu Rulman Sanayi)",
+    role: "Electrical & Electronics Engineering Intern",
+    period: "Jun — Jul 2026",
+    points: [
+      "Gained practical exposure to electrical maintenance, motor drives, industrial automation, and measurement systems in a large-scale manufacturing environment.",
+    ],
+  },
+  {
+    org: "AI Tinkerers İzmir",
+    role: "Founder & Chapter Lead",
+    period: "Oct 2026 — Present",
+    points: [
+      "Establishing the İzmir chapter of AI Tinkerers, bringing together AI builders to share technical projects, exchange ideas, and connect through community events.",
+    ],
+  },
+  {
+    org: "MentiGuide",
+    role: "Volunteer Mentor",
+    period: "Jun 2026 — Present",
+    points: [
+      "Supporting students through mentorship, helping them explore educational opportunities, career paths, and personal development.",
+    ],
+  },
+  {
     org: "Solveny",
-    role: "Founder · Automation & Workflow Engineer",
+    role: "Founder",
     period: "2025 — Present",
     points: [
-      "I build end-to-end automation systems with n8n and AI-powered workflows.",
-      "I take multi-tenant SaaS products for businesses from idea to launch.",
-      "I lead backend architecture, deployment, and workflow design.",
+      "Building software and AI-powered automation solutions while exploring real business problems and opportunities for new products.",
     ],
   },
   {
-    org: "MODÜ-GRID",
-    role: "Full-stack & AI Engineer",
-    period: "2025 — 2026",
+    org: "İKÇÜ Artificial Intelligence Laboratory",
+    role: "Artificial Intelligence Researcher",
+    period: "Feb — Oct 2025",
     points: [
-      "Built a FastAPI backend and IoT layer for a smart grid simulation.",
-      "Designed autonomous decision systems to optimize energy distribution.",
-    ],
-  },
-  {
-    org: "Independent Projects",
-    role: "Software & Automation Builder",
-    period: "2023 — 2025",
-    points: [
-      "Built production-grade web applications with Next.js, FastAPI, and PostgreSQL.",
-      "Turned early concepts into working prototypes and live products.",
+      "Participated in AI research, technical experimentation, and collaborative engineering projects.",
     ],
   },
 ];

@@ -6,6 +6,7 @@ export function Hero() {
       <p className="eyebrow">{portfolioDesign.hero.overline}</p>
       <h1 className="hero-name"><span>Yunus Arda</span><span>Güney.</span></h1>
       <p className="hero-copy">{portfolioDesign.hero.intro}</p>
+      <p className="hero-copy hero-copy-secondary">{portfolioDesign.hero.secondary}</p>
       <a href="#projects" className="text-link hero-link">{portfolioDesign.hero.cta} ↓</a>
     </section>
   );

@@ -13,6 +13,9 @@ export interface Project {
   year: string;
   category: ProjectCategory;
   isFeatured: boolean;
+  recognition?: string;
+  linkUrl?: string;
+  linkLabel?: string;
   demoUrl?: string;
   githubUrl?: string;
   image?: string;

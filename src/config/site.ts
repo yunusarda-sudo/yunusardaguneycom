@@ -29,14 +29,14 @@ export const stats = [
 ] as const;
 
 export const socialLinks = {
-  github: "https://github.com/yunusardaguney",
-  linkedin: "https://linkedin.com/in/yunusardaguney",
+  github: "https://github.com/yunusarda-sudo",
+  linkedin: "https://tr.linkedin.com/in/yunus-arda-guney",
   email: "mailto:contact@solveny.co",
 } as const;
 
 export const navLinks = [
-  { label: "Selected work", href: "#projects" },
   { label: "About", href: "#about" },
+  { label: "Selected Work", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ] as const;
@@ -70,14 +70,37 @@ export const projectCopy = {
 
 export const portfolioDesign = {
   hero: {
-    overline: "Software · AI · Istanbul",
+    overline: "Engineering Student · Founder · İzmir",
     location: "Istanbul, Türkiye ↗",
-    intro: "I build web products and AI-powered workflows, connecting the interface to the systems behind it.",
-    cta: "Explore selected work",
+    intro: "I enjoy understanding how things work, finding problems worth solving, and building solutions that make a difference.",
+    secondary: "My interests span engineering, AI, and entrepreneurship, but what drives me most is turning real problems into useful products.",
+    cta: "Explore my work",
     artLabel: "Curious about systems.",
   },
-  work: { heading: "SaaS, energy, and automation.", intro: "Three projects I’m working on and the role I play in each.", title: "Selected work", period: "2025—2026", details: "My role", visit: "Visit project", artCaption: "A typographic cover made for this project" },
-  about: { title: "Behind the code.", label: "About", intro: "I’m as interested in how an interface feels as I am in how the system behind it works.", description: "I build products with Next.js and FastAPI, connecting systems with n8n, AI, and IoT. My current focus spans appointment management, smart grids, and business automation.", approach: "Start small. Make it work. Make it better." },
-  contact: { label: "A new beginning", title: "Have an idea?", cta: "Let’s talk ↗", form: "Prefer to leave a message", emailLabel: "Email", socialLabel: "Find me elsewhere" },
+  work: { heading: "Things I've been building.", intro: "Products and systems across AI, SaaS, biomass, and energy.", title: "Selected Work", period: "2025—2026", details: "My role", visit: "Visit project", artCaption: "A typographic cover made for this project" },
+  about: {
+    title: "Beyond the code.",
+    label: "About",
+    intro: "I'm an Electrical and Electronics Engineering student at İzmir Kâtip Çelebi University, with a strong interest in AI, software, and entrepreneurship.",
+    description: "I enjoy building things, but I'm equally interested in understanding the problems behind them. Through engineering projects, startup experiments, and open-source contributions, I'm learning how to turn ideas into products that people actually need.",
+    outside: "Outside of my projects, I enjoy connecting with other builders, exploring new technologies, playing the bağlama (a traditional Turkish string instrument), and strength training.",
+  },
+  openSource: {
+    title: "Building in the open.",
+    intro: "I contribute to open-source projects focused on AI agents, developer tools, and automation.",
+    description: "Working with real codebases helps me learn from other developers, understand complex systems, and contribute to tools people actually use.",
+    projects: "Some of my contributions include work on OpenAdapt, Agenta, and other AI infrastructure projects.",
+    cta: "Explore my GitHub",
+  },
+  contact: {
+    label: "Contact",
+    title: "Let's build something useful.",
+    intro: "I'm always interested in meeting people working on interesting problems, exploring new ideas, or building something from scratch.",
+    description: "Whether it's a startup, an engineering project, or an open-source collaboration, feel free to reach out.",
+    cta: "Get in touch",
+    form: "Prefer to leave a message",
+    emailLabel: "Email",
+    socialLabel: "Find me elsewhere",
+  },
   footer: "Design, code, and everything in between.",
 } as const;

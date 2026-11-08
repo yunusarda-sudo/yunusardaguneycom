@@ -3,9 +3,7 @@ import { portfolioDesign } from "@/config/site";
 import { ProjectFocus } from "@/components/project-focus";
 
 export function Projects() {
-  const sorted = [...projects].sort(
-    (a, b) => Number(b.isFeatured) - Number(a.isFeatured) || Number(b.year) - Number(a.year),
-  );
+  const sorted = projects;
 
   return (
     <section id="projects" className="folio-wrap portfolio-section projects-section">
@@ -16,19 +14,21 @@ export function Projects() {
           summary: project.problem,
         }))} />
         <ol className="work-list">
-          {sorted.map((project, i) => (
+          {sorted.map((project) => (
             <li key={project.id} className="work-entry" data-project-id={project.id}>
-              <p className="eyebrow">0{i + 1} · {project.status} · {project.year}</p>
+              <p className="eyebrow">{project.status} · {project.year}</p>
               <h3 className="work-title">{project.displayTitle ?? project.title}</h3>
               <p className="work-description">{project.description}</p>
               <div className="work-role">
                 <p className="eyebrow mb-2">{portfolioDesign.work.details}</p>
                 <p>{project.contribution}</p>
               </div>
-              <p className="work-tech">{project.tags.join(" · ")}</p>
-              {project.demoUrl && (
-                <a href={project.demoUrl} className="text-link mt-4" target="_blank" rel="noopener noreferrer">
-                  {portfolioDesign.work.visit} ↗
+              {project.recognition && (
+                <p className="work-recognition"><span className="eyebrow">Recognition</span><span>{project.recognition}</span></p>
+              )}
+              {project.linkUrl && (
+                <a href={project.linkUrl} className="text-link mt-4" target="_blank" rel="noopener noreferrer">
+                  {project.linkLabel ?? portfolioDesign.work.visit} ↗
                 </a>
               )}
             </li>

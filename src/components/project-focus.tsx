@@ -54,7 +54,11 @@ export function ProjectFocus({ projects }: { projects: FocusProject[] }) {
         <h2 className="section-title">{current?.title ?? portfolioDesign.work.heading}</h2>
         <p className="work-intro-copy">{current?.summary ?? portfolioDesign.work.intro}</p>
       </div>
-      <h2 className="work-mobile-heading">{portfolioDesign.work.title}</h2>
+      <div className="work-mobile-heading">
+        <p className="eyebrow">01 / {portfolioDesign.work.title}</p>
+        <h2 className="section-title">{portfolioDesign.work.heading}</h2>
+        <p className="work-intro-copy">{portfolioDesign.work.intro}</p>
+      </div>
     </div>
   );
 }
