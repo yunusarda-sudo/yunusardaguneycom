@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Yunus Arda Güney</title>
+  <desc>YA monogram with an architectural arch and a point of light.</desc>
+  <rect width="64" height="64" rx="15" fill="#06132e" />
+  <g fill="#f2ead7" font-family="Georgia, 'Times New Roman', serif" font-weight="400">
+    <text x="8" y="49" font-size="43">Y</text>
+    <text x="23" y="49" font-size="43">A</text>
+  </g>
+  <path d="M27 49v-7a5 5 0 0 1 10 0v7" fill="#06132e" />
+  <path d="m32 39 .8 1.8 1.8.8-1.8.8-.8 1.8-.8-1.8-1.8-.8 1.8-.8z" fill="#f2ead7" />
+</svg>
