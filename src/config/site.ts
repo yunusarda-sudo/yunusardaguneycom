@@ -81,7 +81,7 @@ export const portfolioDesign = {
   about: {
     title: "Beyond the code.",
     label: "About",
-    intro: "I'm an Electrical and Electronics Engineering student at İzmir Kâtip Çelebi University, with a strong interest in AI, software, and entrepreneurship.",
+    intro: "I'm a 21-year-old Electrical and Electronics Engineering student at İzmir Kâtip Çelebi University, interested in AI, entrepreneurship, and solving real-world problems.",
     description: "I enjoy building things, but I'm equally interested in understanding the problems behind them. Through engineering projects, startup experiments, and open-source contributions, I'm learning how to turn ideas into products that people actually need.",
     outside: "Outside of my projects, I enjoy connecting with other builders, exploring new technologies, playing the bağlama (a traditional Turkish string instrument), and strength training.",
   },
