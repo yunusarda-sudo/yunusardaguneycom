@@ -35,23 +35,23 @@ export async function POST(request: Request) {
   try {
     json = await request.json();
   } catch {
-    return NextResponse.json({ error: "Geçersiz istek." }, { status: 400 });
+    return NextResponse.json({ error: "Invalid request." }, { status: 400 });
   }
 
   const payload = parse(json);
   if (!payload) {
     return NextResponse.json(
-      { error: "Lütfen tüm alanları geçerli biçimde doldur." },
+      { error: "Please complete every field with valid information." },
       { status: 422 },
     );
   }
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    // Servis henüz bağlanmadı — sessizce "başarılı" demiyoruz.
+    // Do not report success when the email service is not configured.
     return NextResponse.json(
       {
-        error: `Form servisi henüz yapılandırılmadı. Lütfen doğrudan ${siteConfig.email} adresine yaz.`,
+        error: `The contact form is not configured yet. Please email ${siteConfig.email} directly.`,
       },
       { status: 503 },
     );
@@ -71,16 +71,16 @@ export async function POST(request: Request) {
         from,
         to,
         reply_to: payload.email,
-        subject: `Portfolio iletişim · ${payload.name}`,
+        subject: `Portfolio inquiry · ${payload.name}`,
         html: `<p><strong>${escapeHtml(payload.name)}</strong> (${escapeHtml(
           payload.email,
-        )}) yazdı:</p><p>${escapeHtml(payload.message).replace(/\n/g, "<br>")}</p>`,
+        )}) sent a message:</p><p>${escapeHtml(payload.message).replace(/\n/g, "<br>")}</p>`,
       }),
     });
 
     if (!res.ok) {
       return NextResponse.json(
-        { error: "Mesaj gönderilemedi, lütfen e-posta ile dene." },
+        { error: "Your message could not be sent. Please try email instead." },
         { status: 502 },
       );
     }
@@ -88,7 +88,7 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json(
-      { error: "Mesaj gönderilemedi, lütfen e-posta ile dene." },
+      { error: "Your message could not be sent. Please try email instead." },
       { status: 502 },
     );
   }

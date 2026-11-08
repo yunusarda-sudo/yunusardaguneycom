@@ -13,7 +13,7 @@ function ProfilePlaceholder() {
     <div className="flex h-full w-full flex-col items-center justify-center gap-2 bg-gradient-to-br from-surface-elevated to-surface">
       <span className="font-mono text-3xl font-medium text-accent">YA</span>
       <span className="font-mono text-[10px] uppercase tracking-widest text-muted">
-        fotoğraf
+        No profile photo
       </span>
     </div>
   );

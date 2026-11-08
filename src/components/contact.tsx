@@ -5,7 +5,7 @@ export function Contact() {
   const copy = portfolioDesign.contact;
   return (
     <section id="contact" className="folio-wrap portfolio-section">
-      <p className="eyebrow">04 / İletişim</p>
+      <p className="eyebrow">04 / Contact</p>
       <h2 className="section-title">{copy.title}</h2>
       <div className="contact-links">
         <a href={socialLinks.email} className="text-link">{siteConfig.email} ↗</a>

@@ -23,12 +23,12 @@ export function ContactForm() {
 
     if (!name || !email || !message) {
       setStatus("error");
-      setErrorMsg("Lütfen tüm alanları doldur.");
+      setErrorMsg("Please complete every field.");
       return;
     }
     if (!EMAIL_RE.test(email)) {
       setStatus("error");
-      setErrorMsg("Geçerli bir e-posta gir.");
+      setErrorMsg("Enter a valid email address.");
       return;
     }
 
@@ -46,7 +46,7 @@ export function ContactForm() {
         const body = (await res.json().catch(() => null)) as
           | { error?: string }
           | null;
-        throw new Error(body?.error ?? "Gönderilemedi.");
+        throw new Error(body?.error ?? "Your message could not be sent.");
       }
 
       setStatus("success");
@@ -56,7 +56,7 @@ export function ContactForm() {
       setErrorMsg(
         err instanceof Error
           ? err.message
-          : "Beklenmeyen bir hata oldu. Doğrudan e-posta atabilirsin.",
+          : "Something went wrong. You can email me directly instead.",
       );
     }
   }
@@ -68,17 +68,17 @@ export function ContactForm() {
           ✓
         </span>
         <p className="text-2xl text-foreground">
-          Mesajın ulaştı, teşekkürler!
+          Your message is on its way. Thank you!
         </p>
         <p className="max-w-sm text-sm text-muted">
-          Genellikle 24 saat içinde dönüş yapıyorum.
+          I usually reply within 24 hours.
         </p>
         <button
           type="button"
           onClick={() => setStatus("idle")}
           className="mt-2 font-mono text-[11px] uppercase tracking-[0.18em] text-accent link-underline"
         >
-          Yeni mesaj →
+          Send another message →
         </button>
       </div>
     );
@@ -91,34 +91,34 @@ export function ContactForm() {
       className="flex flex-col gap-6"
     >
       <div className="grid gap-5 sm:grid-cols-2">
-        <Field label="İsim" htmlFor="name">
+        <Field label="Name" htmlFor="name">
           <input
             id="name"
             name="name"
             type="text"
             autoComplete="name"
-            placeholder="Adın"
+            placeholder="Your name"
             className="input-base"
           />
         </Field>
-        <Field label="E-posta" htmlFor="email">
+        <Field label="Email" htmlFor="email">
           <input
             id="email"
             name="email"
             type="email"
             autoComplete="email"
-            placeholder="seninadres@mail.com"
+            placeholder="you@example.com"
             className="input-base"
           />
         </Field>
       </div>
 
-      <Field label="Mesaj" htmlFor="message">
+      <Field label="Message" htmlFor="message">
         <textarea
           id="message"
           name="message"
           rows={5}
-          placeholder="Proje, iş birliği ya da danışmanlık…"
+          placeholder="A project, collaboration, or something else…"
           className="input-base resize-none"
         />
       </Field>
@@ -135,7 +135,7 @@ export function ContactForm() {
           disabled={status === "submitting"}
           className="text-link disabled:opacity-60"
         >
-          {status === "submitting" ? "Gönderiliyor…" : "Gönder"}
+          {status === "submitting" ? "Sending…" : "Send message"}
           <span className="transition-transform group-hover:translate-x-0.5">
             →
           </span>
@@ -144,7 +144,7 @@ export function ContactForm() {
           href={`mailto:${siteConfig.email}`}
           className="font-mono text-[11px] uppercase tracking-[0.18em] text-muted link-underline hover:text-foreground"
         >
-          ya da direkt yaz
+          or email me directly
         </a>
       </div>
     </form>

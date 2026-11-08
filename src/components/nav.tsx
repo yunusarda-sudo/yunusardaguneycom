@@ -3,8 +3,8 @@ import { navLinks, siteConfig, socialLinks } from "@/config/site";
 export function Nav() {
   return (
     <header className="folio-wrap site-header">
-      <a href="#main" className="sr-only focus:not-sr-only">İçeriğe geç</a>
-      <nav className="site-nav" aria-label="Ana gezinme">
+      <a href="#main" className="sr-only focus:not-sr-only">Skip to content</a>
+      <nav className="site-nav" aria-label="Main navigation">
         <a href="#top" className="site-brand">{siteConfig.name}</a>
         <div className="site-nav-links">
           {navLinks.filter(link => link.href !== "#experience").map(link => (

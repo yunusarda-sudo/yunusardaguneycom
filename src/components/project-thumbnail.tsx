@@ -11,7 +11,7 @@ export function ProjectThumbnail({projectId,title,image}:ProjectThumbnailProps) 
   const showImage=Boolean(image&&!failed);
   return <figure className="min-w-0">
     <div className={`work-cover cover-${artwork?.style ?? "solveny"}`}>
-      {showImage ? <Image src={image!} alt={`${title} ekran görüntüsü`} fill sizes="(max-width:767px) 85vw, 45vw" className="object-cover" onError={()=>setFailed(true)}/> : <>
+      {showImage ? <Image src={image!} alt={`${title} screenshot`} fill sizes="(max-width:767px) 85vw, 45vw" className="object-cover" onError={()=>setFailed(true)}/> : <>
         <div className="cover-meta eyebrow"><span>{artwork?.label}</span></div>
         {artwork?.style==='randevu'&&<div className="cover-orbit" aria-hidden/>}
         {artwork?.style==='solveny'&&<div className="cover-stripes" aria-hidden/>}

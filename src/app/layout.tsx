@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     description: siteConfig.tagline,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    locale: "tr_TR",
+    locale: "en_US",
     type: "website",
   },
 };
@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr">
+    <html lang="en">
       <body
         className={`${readingFont.variable} ${labelFont.variable} antialiased`}
       >

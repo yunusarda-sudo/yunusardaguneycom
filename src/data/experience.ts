@@ -6,18 +6,17 @@ export interface TimelineItem {
 }
 
 /**
- * Deneyim ve eğitim verisi — gerçek bilgilerinle güncelle.
- * Tarih aralıkları "period" alanında serbest metin (ör. "2024 — devam").
+ * Experience and education data. Keep date ranges as plain text (for example, "2024 — Present").
  */
 export const experience: TimelineItem[] = [
   {
     org: "Solveny",
-    role: "Kurucu · Otomasyon & Workflow Mühendisi",
-    period: "2025 — devam",
+    role: "Founder · Automation & Workflow Engineer",
+    period: "2025 — Present",
     points: [
-      "n8n ve yapay zekâ tabanlı iş akışlarıyla uçtan uca otomasyon sistemleri kuruyorum.",
-      "İşletmelere özel multi-tenant SaaS ürünlerini fikirden canlıya taşıyorum.",
-      "Backend mimarisi, deployment ve süreç tasarımını tek başıma yönetiyorum.",
+      "I build end-to-end automation systems with n8n and AI-powered workflows.",
+      "I take multi-tenant SaaS products for businesses from idea to launch.",
+      "I lead backend architecture, deployment, and workflow design.",
     ],
   },
   {
@@ -25,28 +24,28 @@ export const experience: TimelineItem[] = [
     role: "Full-stack & AI Engineer",
     period: "2025 — 2026",
     points: [
-      "Akıllı şebeke simülasyonu için FastAPI tabanlı backend ve IoT katmanı geliştirdim.",
-      "Enerji dağıtımını optimize eden otonom karar mekanizmalarını tasarladım.",
+      "Built a FastAPI backend and IoT layer for a smart grid simulation.",
+      "Designed autonomous decision systems to optimize energy distribution.",
     ],
   },
   {
-    org: "Bağımsız Projeler",
+    org: "Independent Projects",
     role: "Software & Automation Builder",
     period: "2023 — 2025",
     points: [
-      "Next.js, FastAPI ve PostgreSQL stack'iyle production kalitesinde web uygulamaları geliştirdim.",
-      "Teorik yaklaşımları hızlıca çalışan prototiplere ve canlı ürünlere dönüştürdüm.",
+      "Built production-grade web applications with Next.js, FastAPI, and PostgreSQL.",
+      "Turned early concepts into working prototypes and live products.",
     ],
   },
 ];
 
 export const education: TimelineItem[] = [
   {
-    org: "Üniversite", // ← okulunla güncelle
-    role: "Lisans · [Bölüm]",
-    period: "[Yıl] — [Yıl]",
+    org: "University", // Replace with the institution name when confirmed.
+    role: "Bachelor's degree · [Field]",
+    period: "[Year] — [Year]",
     points: [
-      "Analitik altyapı ve mühendislik temelli problem çözme yaklaşımı.",
+      "Analytical foundations and an engineering approach to problem-solving.",
     ],
   },
 ];

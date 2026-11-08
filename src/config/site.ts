@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Yunus Arda Güney",
   role: "Software & AI Automation Engineer",
   tagline:
-    "Web ürünleri ve yapay zekâ otomasyonları geliştiriyorum. Fikirleri, kullanışlı arayüzlerden arka plandaki sistemlere kadar uçtan uca ele alıyorum.",
+    "I build web products and AI-powered automations, taking ideas from thoughtful interfaces to the systems behind them.",
   url: "https://yunusardaguney.com",
   email: "contact@solveny.co",
   assets: {
@@ -13,7 +13,7 @@ export const siteConfig = {
   },
 } as const;
 
-/** Hero'da değişen başlıklar (typing efekti) */
+/** Rotating hero titles */
 export const heroRotatingTitles = [
   "Software Engineer",
   "AI Automation Engineer",
@@ -21,11 +21,11 @@ export const heroRotatingTitles = [
   "Full-stack Developer",
 ] as const;
 
-/** Hakkımda istatistikleri (sayaç animasyonlu) */
+/** About section statistics */
 export const stats = [
-  { value: 3, suffix: "+", label: "Canlı / aktif proje" },
-  { value: 3, suffix: "+", label: "Yıl üretim deneyimi" },
-  { value: 100, suffix: "%", label: "Uçtan uca sahiplik" },
+  { value: 3, suffix: "+", label: "Live / active projects" },
+  { value: 3, suffix: "+", label: "Years building software" },
+  { value: 100, suffix: "%", label: "End-to-end ownership" },
 ] as const;
 
 export const socialLinks = {
@@ -35,10 +35,10 @@ export const socialLinks = {
 } as const;
 
 export const navLinks = [
-  { label: "Projeler", href: "#projects" },
-  { label: "Hakkımda", href: "#about" },
-  { label: "Deneyim", href: "#experience" },
-  { label: "İletişim", href: "#contact" },
+  { label: "Selected work", href: "#projects" },
+  { label: "About", href: "#about" },
+  { label: "Experience", href: "#experience" },
+  { label: "Contact", href: "#contact" },
 ] as const;
 
 export const techStack = [
@@ -51,33 +51,33 @@ export const techStack = [
 ] as const;
 
 export const aboutParagraphs = [
-  "Bir fikrin çalışan bir ürüne dönüşme süreciyle ilgileniyorum. Kullanıcının gördüğü arayüzü, verinin nasıl işlendiğini ve arka plandaki iş akışlarını birlikte düşünerek geliştiriyorum.",
-  "Next.js, FastAPI ve PostgreSQL ile web uygulamaları; n8n ve yapay zekâ entegrasyonlarıyla otomasyonlar üzerinde çalışıyorum. MODÜ-GRID, RandevuAsistanim ve Solveny, bu ilginin enerji, randevu yönetimi ve iş süreçlerindeki karşılıkları.",
-  "Benim için iyi bir çözüm, anlaşılır bir deneyim ve sürdürülebilir bir teknik yapı demek. Yeni projelerde önce ihtiyacı netleştiriyor, ardından küçük ve somut adımlarla ilerliyorum.",
+  "I care about the path from an idea to a working product. I think about the interface people use, how data moves, and the workflows running behind it as one connected system.",
+  "I build web applications with Next.js, FastAPI, and PostgreSQL, and create automations with n8n and AI integrations. MODÜ-GRID, Appointment Assistant, and Solveny bring that work to energy, appointment management, and business operations.",
+  "A good solution pairs a clear experience with a system that can keep growing. I start by understanding the need, then move forward in small, practical steps.",
 ] as const;
 
 export const projectCopy = {
-  label: "Seçili çalışmalar",
-  kicker: "2025–2026 · SaaS, enerji ve otomasyon",
-  title: "Fikirden sisteme.",
-  description: "Farklı alanlarda üzerinde çalıştığım üç proje. Her birinde çözmeye odaklandığım problem ve üstlendiğim sorumluluklar.",
-  problem: "Odaklandığım problem",
-  contribution: "Katkım",
-  technologies: "Teknolojiler",
-  illustrative: "Temsili proje şeması · ürün ekranı değildir",
-  statusNote: "Üç çalışma · üç farklı problem",
+  label: "Selected work",
+  kicker: "2025–2026 · SaaS, energy, and automation",
+  title: "From idea to system.",
+  description: "Three projects across different fields, each shaped by a problem I set out to solve and the work I took on.",
+  problem: "The problem",
+  contribution: "My contribution",
+  technologies: "Technologies",
+  illustrative: "Conceptual project diagram · not a product screen",
+  statusNote: "Three projects · three different problems",
 } as const;
 
 export const portfolioDesign = {
   hero: {
-    overline: "Yazılım · Yapay zekâ · İstanbul",
-    location: "İstanbul, Türkiye ↗",
-    intro: "Web ürünleri geliştiriyor, yapay zekâ ile iş akışları kuruyorum. Arayüzden altyapıya, fikrin bütününe odaklanıyorum.",
-    cta: "Çalışmaları keşfet",
-    artLabel: "Sistemlere meraklı.",
+    overline: "Software · AI · Istanbul",
+    location: "Istanbul, Türkiye ↗",
+    intro: "I build web products and AI-powered workflows, connecting the interface to the systems behind it.",
+    cta: "Explore selected work",
+    artLabel: "Curious about systems.",
   },
-  work: { heading: "SaaS, enerji ve otomasyon.", intro: "Üzerinde çalıştığım üç proje ve her birinde üstlendiğim rol.", title: "Seçili çalışmalar", period: "2025—2026", details: "Bu projedeki rolüm", visit: "Projeyi aç", artCaption: "Proje için tasarlanan tipografik kapak" },
-  about: { title: "Kodun arkasında.", label: "Hakkımda", intro: "Bir arayüzün nasıl göründüğü kadar, arkasındaki sistemin nasıl çalıştığı da ilgimi çekiyor.", description: "Next.js ve FastAPI ile ürün geliştiriyor; n8n, yapay zekâ ve IoT ile farklı sistemleri birbirine bağlıyorum. Şu sıralar odağım randevu yönetimi, akıllı şebekeler ve iş otomasyonları.", approach: "Küçük başla. Çalışır hale getir. İyileştir." },
-  contact: { label: "Yeni bir başlangıç", title: "Bir fikrin var mı?", cta: "Konuşalım ↗", form: "Mesaj bırakmayı tercih ederim", emailLabel: "E-posta", socialLabel: "Diğer yerlerde" },
-  footer: "Tasarım, kod ve aradaki her şey.",
+  work: { heading: "SaaS, energy, and automation.", intro: "Three projects I’m working on and the role I play in each.", title: "Selected work", period: "2025—2026", details: "My role", visit: "Visit project", artCaption: "A typographic cover made for this project" },
+  about: { title: "Behind the code.", label: "About", intro: "I’m as interested in how an interface feels as I am in how the system behind it works.", description: "I build products with Next.js and FastAPI, connecting systems with n8n, AI, and IoT. My current focus spans appointment management, smart grids, and business automation.", approach: "Start small. Make it work. Make it better." },
+  contact: { label: "A new beginning", title: "Have an idea?", cta: "Let’s talk ↗", form: "Prefer to leave a message", emailLabel: "Email", socialLabel: "Find me elsewhere" },
+  footer: "Design, code, and everything in between.",
 } as const;
