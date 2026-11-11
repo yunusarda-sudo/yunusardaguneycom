@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline:
     "I build web products and AI-powered automations, taking ideas from thoughtful interfaces to the systems behind them.",
   url: "https://yunusardaguney.com",
-  email: "contact@solveny.co",
+  email: "yunusarda.dev@gmail.com",
   assets: {
     /** Set to "/me.jpg" after adding public/me.jpg */
     profilePhoto: null as string | null,
@@ -31,7 +31,7 @@ export const stats = [
 export const socialLinks = {
   github: "https://github.com/yunusarda-sudo",
   linkedin: "https://tr.linkedin.com/in/yunus-arda-guney",
-  email: "mailto:contact@solveny.co",
+  email: "mailto:yunusarda.dev@gmail.com",
 } as const;
 
 export const navLinks = [
