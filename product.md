@@ -150,7 +150,7 @@ Her proje kartında:
 export const socialLinks = {
   github: "https://github.com/yunusardaguney",
   linkedin: "https://linkedin.com/in/yunusardaguney",
-  email: "mailto:contact@solveny.co",
+  email: "mailto:yunusarda.dev@gmail.com",
 };
 ```
 

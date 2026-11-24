@@ -86,14 +86,14 @@ export const projects: Project[] = [
   },
   {
     id: "arda-suite",
-    title: "Arda Suite",
-    tagline: "Open-Source AI Infrastructure",
+    title: "AegisOS",
+    tagline: "Local-First Desktop Assistant & Bounded Runtime",
     description:
-      "A modular, privacy-first AI assistant and agent runtime combining persistent memory, tool integration, and controlled execution to make autonomous systems more reliable and accountable.",
-    problem: "Make autonomous AI systems more reliable and accountable while keeping execution controlled.",
+      "A local-first desktop assistant and bounded agent runtime for macOS and Linux. It handles everyday workflows through push-to-talk voice commands, cursor-level dictation, and Obsidian task sync, while ensuring autonomous agent actions run within strict permission boundaries and persistent memory.",
+    problem: "Combine everyday desktop productivity with safe, permission-bounded AI agent execution that runs entirely locally.",
     contribution: "Creator & Developer",
-    status: "Open-Source AI Infrastructure",
-    tags: ["Open Source", "AI Agents", "Persistent Memory"],
+    status: "Local-First Desktop AI",
+    tags: ["Local-First AI", "Bounded Agents", "MCP", "macOS"],
     year: "2026",
     category: "ai",
     isFeatured: true,
@@ -116,5 +116,5 @@ export const projectArtwork: Record<string, { style: string; word: string; label
   pickable: { style: "randevu", word: "pickable", label: "AI / SaaS growth", subtitle: "Make products discoverable." },
   randevuo: { style: "randevu", word: "ra.", label: "AI / Appointment platform", subtitle: "Booking through conversation." },
   "modu-grid": { style: "grid", word: "MODÜ|GRID", label: "Energy / Industry", subtitle: "Flexible energy decisions." },
-  "arda-suite": { style: "grid", word: "arda|suite", label: "Open source / AI", subtitle: "Agents under control." },
+  "arda-suite": { style: "grid", word: "aegis|os", label: "Local AI / Bounded Runtime", subtitle: "Safe, bounded execution." },
 };
