@@ -37,8 +37,13 @@ npm run dev
 | `public/me.jpg` | Profil fotoğrafı |
 | `public/projects/*.png` | Proje ekran görüntüleri |
 
-Görseller eklenene kadar skeleton yer tutucular aktif.
+## Güvenlik ve Performans
+
+- **Next.js 16**: Modern App Router ve optimize edilmiş statik/SSR çıktıları.
+- **Güvenlik Başlıkları (Security Headers)**: `next.config.ts` üzerinden HSTS (`includeSubDomains; preload`), `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin` ve kısıtlayıcı `Permissions-Policy` başlıkları zorunlu kılınmıştır.
+- **Bağımlılık Hijyeni**: 0 güvenlik açığı (zero-vulnerability) standardı ile düzenli npm audit denetimleri.
 
 ## Deploy
 
 Vercel → `yunusardaguney.com`
+
